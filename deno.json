@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "startdb": "json-server -w db.json"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1"

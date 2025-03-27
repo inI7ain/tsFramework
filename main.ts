@@ -1,21 +1,8 @@
-import User from "./models/User.ts";
+import { Application } from 'https://deno.land/x/oak/mod.ts'
+import router from "./router.ts";
 
-Deno.serve((_req) => {
-  const user = new User({name: "Ati", age: 30});
-  user.set({age: 31});
+const app = new Application();
+app.use(router.routes());
+app.use(router.allowedMethods());
 
-  user.on("change", () => {});
-  user.on("random", () => {});
-  user.on("random", () => {});
-
-  return new Response(JSON.stringify(
-    user
-  ),
-  {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-});
-
+await app.listen({ port: 8000 });
