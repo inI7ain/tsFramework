@@ -1,17 +1,6 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
-import "jsr:@std/dotenv/load";
-import router from "./router.ts";
+import User from "./User.ts";
 
-const cert = await Deno.readTextFile("./certificates/cert.pem");
-const key = await Deno.readTextFile("./certificates/key.pem");
+const user = new User({ id: "b579"});
 
-const app = new Application();
-app.use(router.routes());
-app.use(router.allowedMethods());
-
-await app.listen({
-  port: 8000/* ,
-  secure: true,
-  cert,
-  key, */
-});
+await user.retrieve();
+console.log(user);

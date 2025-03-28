@@ -28,10 +28,9 @@ export default class User {
         this.events[eventName] = handlers;
     }
 
-    public retrieve(): void {
-        fetch(`https://localhost:8000/users/${this.get("id")}`)
-        .then((response: Response): void => {
-            console.log(response);
-        });
+    public async retrieve(): Promise<void> {
+        const res = await fetch(`http://localhost:8000/users/${this.get("id")}`);
+        const data = await res.json();
+        this.set(data);
     }
 }
