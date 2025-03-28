@@ -1,4 +1,5 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
+import "jsr:@std/dotenv/load";
 import router from "./router.ts";
 
 const cert = await Deno.readTextFile("./certificates/cert.pem");
