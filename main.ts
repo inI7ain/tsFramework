@@ -7,7 +7,3 @@ fUser.set({ age: 29 });
 fUser.save();
 
 
-
-// fix the update logic, there is some issue with merging data
-/* await fUser.save();
-await user.save(); */
